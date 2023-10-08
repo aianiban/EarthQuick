@@ -1,0 +1,1964 @@
+<!doctype html>
+<html>
+<head>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Radikal|Raleway|Bebas+Neue">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script type="text/javascript">
+  $(window).on('scroll', function(){
+    if($(window).scrollTop()){
+      $('nav').addClass('black');
+    }
+    else{
+      $('nav').removeClass('black');
+    }
+  })
+</script>
+
+<title>CS110_MP2_ANIBAN_LOREZCO</title>
+</head>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Roboto:700');
+body{
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: white;
+}
+nav{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  padding: 10px 50px;
+  box-sizing: border-box;
+  transition: .5s;
+}
+nav.black{
+  background: rgba(0,0,0,.8);
+  height: 80px;
+  padding: 10px 20px;
+}
+
+nav .logo{
+  float: left;
+  margin-left: 0;
+  padding-left: 0;
+}
+nav.black .logo img{
+  height: 60px;
+
+}
+nav ul{
+  float: right;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+nav ul li{
+  list-style: none;
+}
+nav ul li a{
+  line-height: 80px;
+  color: #262626;
+  padding: 5px 5px;
+  font-family: 'Roboto', sans-serif;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: .5s;
+}
+nav.black ul li a{
+  color: #fff;
+  line-height: 60px;
+}
+
+nav ul li a:hover
+{
+  color: #fff;
+  background: #940007;
+}
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {   
+    width: 100%;
+    padding: 0;
+  }
+}
+@media screen and (max-width: 400px) {
+  .topnav a {
+    float: none;
+    width: 100%;
+  }
+}
+section.sec1{
+  width:100%;
+  height: 100vh;
+  padding: 0;
+}
+section.content{
+  width: 60%;
+  margin-left: 20%;
+}
+section.content p {
+  line-height: 1.3;
+  font-family: Raleway;
+  padding-top: 0;
+  font-size: 16px;
+  margin-top: 0;
+  }
+
+section.content1{
+text-align: center;
+}
+
+section.content h1 {
+  line-height: 1;
+  font-family: Bebas Neue;
+  font-style: bold;
+  font-size: 40px;
+  text-align: center;
+  }
+
+
+section.sec2{
+  width:100%;
+  height: 500px;
+}
+section.content1 p{
+  text-align: center;
+}
+div.line h1{
+  line-height: 1;
+  font-family: Bebas Neue;
+  font-size: 50px;
+  text-align: center;
+  margin-top: 0;
+  color: white;
+}
+div.line h3{
+  line-height: 1;
+  font-family: sans-serif;
+  font-size: 40px;
+  text-align: center;
+  margin-top: 0;
+  color: white;
+}
+div.line p{
+  line-height: 1;
+  font-family: sans-serif;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 0;
+  color: white;
+}
+div.line p a{
+  text-decoration: none;
+  font-style: italic;
+ }
+
+.button {
+  background-color: #940007;
+  border: none;
+  color: white;
+  padding: 2px 2px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  width: 150px;
+  height: 50px;
+  margin: 1px;
+  cursor: pointer;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Raleway;
+}
+.container{
+  background-color:white;
+}
+.card{
+position:fixed;
+  height:320px;
+  width:16%;
+  top:100px;
+  left: 20px;
+  margin-left:;
+  background-color: #430000;
+  text-align:center;
+  padding-bottom: 30px;
+  float: right;
+  list-style-type: none;
+  font-size: 9pt;
+}
+.card h2{
+	font-size: 12pt;
+	color: white;
+}
+.card ul li{
+  color: white;
+  list-style-type:none;
+  padding-right:30px;
+  margin: none;
+  text-align: center;
+  padding-bottom: 4px;
+}
+.card ul li a{
+	text-decoration: none;
+}
+.card1 {
+  padding-right: 40px;
+  padding-top: 30px;
+  padding-left: 0px;
+  margin-top: 0;
+  position: absolute;
+  left:2%;
+  color: black;
+  text-align: center;
+}
+/* For the 2nd table*/
+.card2 {
+  padding-right: 40px;
+  padding-top: 30px;
+  padding-left: 0px;
+  margin-top: 0;
+  position: absolute;
+  left: 26.75%;
+  color: black;
+  text-align: center;
+}
+/* For the 3rd table*/
+.card3 {
+  padding-right: 40px;
+  padding-top: 30px;
+  padding-left: 0px;
+  margin-top: 0;
+  position: absolute;
+  left: 51.5%;
+  color: black;
+  text-align: center;
+}
+/* For the 4th table*/
+.card4 {
+  padding-right: 40px;
+  padding-top: 30px;
+  padding-left: 0px;
+  margin-top: 0;
+  position: absolute;
+  left: 75.75%;
+  color: black;
+  text-align: center;
+}
+.line{
+  background-color: #430000;
+}
+.bold{
+  font-weight: bold;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid gray;
+  text-align: center;
+  padding: 8px;
+  color: black;
+  font-size: 12px;
+}
+td a{
+  text-decoration: none;
+}
+
+span.scrolldown{
+  position:absolute;
+  bottom: 20px;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  transform: translateY(-80px) translateX(-50%) rotate(45deg);
+}
+
+.scrolldown span{
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-bottom: 2px solid #fff;
+  border-right: 2px solid #fff;
+  animation: animate 1.5s linear infinite;
+  opacity: 0;
+}
+
+.scrolldown span:nth-child(1){
+  transform: translate(-15px,-15px);
+  animation-delay: -0.4s;
+}
+
+.scrolldown span:nth-child(2){
+  transform: translate(0,0);
+  animation-delay: -0.2s;  
+}
+
+.scrolldown span:nth-child(3){
+  transform: translate(15px,15px);
+  animation-delay: 0s;
+}
+@keyframes animate{
+  0%
+  {
+    top: -5px;
+    left: -5px;
+    opacity: 0;
+  }
+  25%
+  {
+    top: 0px;
+    left: 0px;
+    opacity: 1;
+  }
+  50%, 100%
+  {
+    top: 5px;
+    left: 5px;
+    opacity: 0;
+  }
+}
+
+}
+</style>
+<body>
+<section class="sec1" name="top">
+ <div id="mapid" style="width: 100%; height: 600px; margin:10px; float: left"> 
+        </div>  
+</section>
+<br>
+<section class = "sec6">
+<section class="content1">
+
+  <a href="index.html" class="button"><p>Go Back</p></a>
+</section>
+<br>
+<div class="line" style="width:100%; height:160px">
+  <br>
+  <br>
+  <br>
+  <a name="barangays">
+  <h1>Barangays Affected By the West Valley Fault</h1>
+</a>
+</div>
+</section>
+<div class="card">
+	<h2>Cities and Provinces</h2>
+	<ul>
+		<li><a href="#top">Go To Top</a><li>
+		<li><a href="#Bulacan">Bulacan</a><li>
+		<li><a href="#Cavite">Cavite</a><li>
+		<li><a href="#Laguna">Laguna</a><li>
+		<li><a href="#Makati">Makati City</a><li>
+		<li><a href="#Marikina">Marikina City</a><li>
+		<li><a href="#Muntinlupa">Muntinlupa City</a><li>
+		<li><a href="#Pasig">Pasig City</a><li>
+		<li><a href="#Quezon">Quezon City</a><li>
+		<li><a href="#Taguig">Taguig CIty</a><li>
+	</ul>
+</div>
+<section class="content">
+  <br>
+  <br>
+      <h1><a class="bold" name="Quezon">Quezon City</a></h1>
+        <h3>Bagong Silangan, Quezon City</h3>
+        <p>Bagong Silangan is a barangay in Quezon City. Its population as determined by the 2015 Census was 88,299. This represented 3.01% of the total population of Quezon City.</p>
+        <p><a class="bold">Population by age group</a><br> According to the 2015 Census, the age group with the highest population in Bagong Silangan is 15 to 19, with 9,427 individuals. Conversely, the age group with the lowest population is 80 and over, with 337 individuals.</p>
+        <p><a class="bold">Historical population</a><br>The population of Bagong Silangan grew from 12,380 in 1990 to 88,299 in 2015, an increase of 75,919 people. The latest census figures in 2015 denote a positive growth rate of 2.33%, or an increase of 10,077 people, from the previous population of 78,222 in 2010.</p>
+        <p><a class="bold">Location</a><br>Bagong Silangan is situated at approximately 14.7066, 121.1090, in the island of Luzon. Elevation at these coordinates is estimated at 47.6 meters or 156.2 feet above mean sea level.</p><br>
+
+         <h3><a class="bold">Bagumbayan, Quezon City</a></h3>
+        <p>Bagumbayan is a barangay in Quezon City. Its population as determined by the 2015 Census was 13,832. This represented 0.47% of the total population of Quezon City.</p>
+        <p><a class="bold">Population by age group</a><br>According to the 2015 Census, the age group with the highest population in Bagumbayan is 1 to 4, with 1,527 individuals. Conversely, the age group with the lowest population is 80 and over, with 63 individuals..</p>
+        <p><a class="bold">Historical population</a><br>The population of Bagumbayan grew from 5,772 in 1990 to 13,832 in 2015, an increase of 8,060 people. The latest census figures in 2015 denote a positive growth rate of 8.03%, or an increase of 4,613 people, from the previous population of 9,219 in 2010.</p>
+        <p><a class="bold">Location</a><br>Bagumbayan is situated at approximately 14.6068, 121.0790, in the island of Luzon. Elevation at these coordinates is estimated at 19.4 meters or 63.6 feet above mean sea level.</p><br>
+
+         <h3><a class="bold">Batasan Hills, Quezon City</a></h3>
+        <p>Batasan Hills is a barangay in Quezon City. Its population as determined by the 2015 Census was 161,409. This represented 5.50% of the total population of Quezon City.</p>
+        <p><a class="bold">Population by age group</a><br>According to the 2015 Census, the age group with the highest population in Batasan Hills is 20 to 24, with 17,547 individuals. Conversely, the age group with the lowest population is 80 and over, with 669 individuals.</p>
+        <p><a class="bold">Historical population</a><br>The population of Batasan Hills grew from 8,778 in 1990 to 161,409 in 2015, an increase of 152,631 people. The latest census figures in 2015 denote a positive growth rate of 1.31%, or an increase of 10,645 people, from the previous population of 150,764 in 2010.</p>
+        <p><a class="bold">Location</a><br>Batasan Hills is situated at approximately 14.6828, 121.0979, in the island of Luzon. Elevation at these coordinates is estimated at 72.1 meters or 236.5 feet above mean sea level.</p><br>
+
+        <h3><a class="bold">Blue Ridge B, Quezon City</a></h3>
+
+<p>Blue Ridge B is a barangay in Quezon City. Its population as determined by the 2015 Census was 1,701. This represented 0.06% of the total population of Quezon City.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>According to the 2015 Census, the age group with the highest population in Blue Ridge B is 20 to 24, with 164 individuals. Conversely, the age group with the lowest population is Under 1, with 5 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Blue Ridge B grew from 1,478 in 1990 to 1,701 in 2015, an increase of 223 people. The latest census figures in 2015 denote a positive growth rate of 0.10%, or an increase of 9 people, from the previous population of 1,692 in 2010.</p>
+
+<p><a class="bold">Location</a></p>
+<p>
+Blue Ridge B is situated at approximately 14.6179, 121.0736, in the island of Luzon. Elevation at these coordinates is estimated at 38.5 meters or 126.3 feet above mean sea level.</p>
+
+<h3><a class="bold">Libis, Quezon City</a></h3>
+Libis is a barangay in Quezon City. Its population as determined by the 2015 Census was 4,018. This represented 0.14% of the total population of Quezon City.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Libis is 20 to 24, with 458 individuals. Conversely, the age group with the lowest population is 75 to 79, with 33 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Libis fell from 6,461 in 1990 to 4,018 in 2015, a decrease of 2,443 people. The latest census figures in 2015 denote a negative growth rate of 1.82%, or a decrease of 407 people, from the previous population of 4,425 in 2010.</p>
+
+<p><a class="bold">Location</a></p>
+<p>
+Libis is situated at approximately 14.6160, 121.0746, in the island of Luzon. Elevation at these coordinates is estimated at 23.5 meters or 77.1 feet above mean sea level.</p>
+
+<h3><a class="bold">Matandang Balara, Quezon City</a></h3>
+
+<p>Matandang Balara is a barangay in Quezon City. Its population as determined by the 2015 Census was 71,022. This represented 2.42% of the total population of Quezon City.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Matandang Balara is 20 to 24, with 7,823 individuals. Conversely, the age group with the lowest population is 80 and over, with 325 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Matandang Balara grew from 34,412 in 1990 to 71,022 in 2015, an increase of 36,610 people. The latest census figures in 2015 denote a negative growth rate of 0.05%, or a decrease of 198 people, from the previous population of 71,220 in 2010.</p>
+
+<p><a class="bold">Location</a></p>
+<p>
+Matandang Balara is situated at approximately 14.6672, 121.0834, in the island of Luzon. Elevation at these coordinates is estimated at 78.8 meters or 258.5 feet above mean sea level.</p>
+
+<h3><a class="bold">Pansol, Quezon City</a></h3>
+
+<p>Pansol is a barangay in Quezon City. Its population as determined by the 2015 Census was 34,240. This represented 1.17% of the total population of Quezon City.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Pansol is 15 to 19, with 3,702 individuals. Conversely, the age group with the lowest population is 80 and over, with 140 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Pansol grew from 13,740 in 1990 to 34,240 in 2015, an increase of 20,500 people. The latest census figures in 2015 denote a positive growth rate of 3.53%, or an increase of 5,703 people, from the previous population of 28,537 in 2010.</p>
+
+<p><a class="bold">Location</a></p>
+<p>
+Pansol is situated at approximately 14.6504, 121.0786, in the island of Luzon. Elevation at these coordinates is estimated at 70.2 meters or 230.3 feet above mean sea level.</p>
+
+<h3><a class="bold">White Plains, Quezon City</a></h3>
+
+<p>White Plains is a barangay in Quezon City. Its population as determined by the 2015 Census was 4,734. This represented 0.16% of the total population of Quezon City.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in White Plains is 20 to 24, with 487 individuals. Conversely, the age group with the lowest population is Under 1, with 39 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of White Plains grew from 4,329 in 1990 to 4,734 in 2015, an increase of 405 people. The latest census figures in 2015 denote a positive growth rate of 4.47%, or an increase of 972 people, from the previous population of 3,762 in 2010.</p>
+
+<p><a class="bold">Location</a></p>
+<p>
+White Plains is situated at approximately 14.6065, 121.0707, in the island of Luzon. Elevation at these coordinates is estimated at 47.9 meters or 157.2 feet above mean sea level.</p>
+
+<h3><a class="bold">Ugong Norte, Quezon City</a></h3>
+
+<p>Ugong Norte is a barangay in Quezon City. Its population as determined by the 2015 Census was 9,953. This represented 0.34% of the total population of Quezon City.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Ugong Norte is 25 to 29, with 916 individuals. Conversely, the age group with the lowest population is Under 1, with 113 individuals.</p>
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Ugong Norte grew from 4,560 in 1990 to 9,953 in 2015, an increase of 5,393 people. The latest census figures in 2015 denote a positive growth rate of 2.47%, or an increase of 1,198 people, from the previous population of 8,755 in 2010.</p>
+<p><a class="bold">Location</a></p>
+<p>
+Ugong Norte is situated at approximately 14.5968, 121.0688, in the island of Luzon. Elevation at these coordinates is estimated at 40.0 meters or 131.2 feet above mean sea level.</p>
+
+<h3><a class="bold">Loyola Heights, Quezon City</a></h3>
+
+<p>Loyola Heights is a barangay in Quezon City. Its population as determined by the 2015 Census was 18,884. This represented 0.64% of the total population of Quezon City.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Loyola Heights is 15 to 19, with 2,160 individuals. Conversely, the age group with the lowest population is 80 and over, with 219 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Loyola Heights grew from 11,602 in 1990 to 18,884 in 2015, an increase of 7,282 people. The latest census figures in 2015 denote a positive growth rate of 1.40%, or an increase of 1,334 people, from the previous population of 17,550 in 2010.</p>
+
+<p><a class="bold">Location</a></p>
+<p>
+Loyola Heights is situated at approximately 14.6395, 121.0727, in the island of Luzon. Elevation at these coordinates is estimated at 54.0 meters or 177.2 feet above mean sea level.</p>
+
+<h3><a class="bold">Pasong Putik, Quezon City</a></h3>
+
+<p>Pasong Putik Proper is a barangay in Quezon City. Its population as determined by the 2015 Census was 35,135. This represented 1.20% of the total population of Quezon City.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Pasong Putik Proper is 20 to 24, with 3,749 individuals. Conversely, the age group with the lowest population is 80 and over, with 183 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Pasong Putik Proper grew from 34,006 in 1990 to 35,135 in 2015, an increase of 1,129 people. The latest census figures in 2015 denote a positive growth rate of 1.84%, or an increase of 3,204 people, from the previous population of 31,931 in 2010.</p>
+
+<p><a class="bold">Location</a></p>
+<p>
+Pasong Putik Proper is situated at approximately 14.7293, 121.0902, in the island of Luzon. Elevation at these coordinates is estimated at 84.3 meters or 276.6 feet above mean sea level.</p>
+
+<h3><a class="bold">Payatas, Quezon City</a></h3>
+
+<p>Payatas is a barangay in Quezon City. Its population as determined by the 2015 Census was 130,333. This represented 4.44% of the total population of Quezon City.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Payatas is 5 to 9, with 14,357 individuals. Conversely, the age group with the lowest population is 80 and over, with 361 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Payatas grew from 33,668 in 1990 to 130,333 in 2015, an increase of 96,665 people. The latest census figures in 2015 denote a positive growth rate of 1.74%, or an increase of 11,280 people, from the previous population of 119,053 in 2010.</p>
+
+<p><a class="bold">Location</a></p>
+<p>
+Payatas is situated at approximately 14.7151, 121.1050, in the island of Luzon. Elevation at these coordinates is estimated at 49.4 meters or 162.1 feet above mean sea level.</p>
+
+<h1><a class="bold" name="Marikina">Marikina City</a></h1>
+
+<h3>Barangka, Marikina City</h3>
+
+<p>Barangka is a barangay in the city of Marikina. Its population as determined by the 2015 Census was 18,504. This represented 4.11% of the total population of Marikina.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Barangka is 25 to 29, with 1,849 individuals. Conversely, the age group with the lowest population is 80 and over, with 152 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Barangka fell from 21,672 in 1990 to 18,504 in 2015, a decrease of 3,168 people. The latest census figures in 2015 denote a negative growth rate of 0.72%, or a decrease of 718 people, from the previous population of 19,222 in 2010.</p>
+
+<p><a class="bold">Location</a></p>
+<p>
+Barangka is situated at approximately 14.6347, 121.0800, in the island of Luzon. Elevation at these coordinates is estimated at 39.4 meters or 129.3 feet above mean sea level.</p>
+
+<h3><a class="bold">Industrial Valley, Marikina City</a></h3>
+
+<p>Industrial Valley is a barangay in the city of Marikina. Its population as determined by the 2015 Census was 15,995. This represented 3.55% of the total population of Marikina.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Industrial Valley is 20 to 24, with 1,688 individuals. Conversely, the age group with the lowest population is 75 to 79, with 124 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Industrial Valley grew from 13,265 in 1990 to 15,995 in 2015, an increase of 2,730 people. The latest census figures in 2015 denote a positive growth rate of 2.21%, or an increase of 1,732 people, from the previous population of 14,263 in 2010.</p>
+
+<p><a class="bold">Location</a></p>
+<p>
+Industrial Valley is situated at approximately 14.6243, 121.0765, in the island of Luzon. Elevation at these coordinates is estimated at 26.9 meters or 88.3 feet above mean sea level.</p>
+
+
+<h3><a class="bold">Malanday, Marikina City</a></h3>
+
+<p>Malanday is a barangay in the city of Marikina. Its population as determined by the 2015 Census was 55,442. This represented 12.30% of the total population of Marikina.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Malanday is 15 to 19, with 5,747 individuals. Conversely, the age group with the lowest population is 80 and over, with 313 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Malanday grew from 26,247 in 1990 to 55,442 in 2015, an increase of 29,195 people. The latest census figures in 2015 denote a positive growth rate of 1.24%, or an increase of 3,486 people, from the previous population of 51,956 in 2010.</p>
+
+<p><a class="bold">Location</a></p>
+<p>
+Malanday is situated at approximately 14.6478, 121.0914, in the island of Luzon. Elevation at these coordinates is estimated at 14.0 meters or 45.9 feet above mean sea level.</p>
+
+<h3><a class="bold">Tumana, Marikina City</a></h3>
+
+<p>Tumana is a barangay in the city of Marikina. Its population as determined by the 2015 Census was 43,239. This represented 9.59% of the total population of Marikina.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Tumana is 10 to 14, with 4,655 individuals. Conversely, the age group with the lowest population is 80 and over, with 80 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Tumana grew from 39,628 in 2007 to 43,239 in 2015, an increase of 3,611 people. The latest census figures in 2015 denote a positive growth rate of 0.64%, or an increase of 1,430 people, from the previous population of 41,809 in 2010.</p>
+
+<h1><a class="bold" name="Pasig">Pasig City</a></h1>
+
+<h3>Bagong Ilog, Pasig City</h3>
+
+<p>Bagong Ilog is a barangay in the city of Pasig. Its population as determined by the 2015 Census was 16,797. This represented 2.22% of the total population of Pasig.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Bagong Ilog is 25 to 29, with 1,745 individuals. Conversely, the age group with the lowest population is 80 and over, with 134 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Bagong Ilog fell from 22,373 in 1990 to 16,797 in 2015, a decrease of 5,576 people. The latest census figures in 2015 denote a positive growth rate of 0.70%, or an increase of 603 people, from the previous population of 16,194 in 2010.</p>
+
+<p><a class="bold">Location</a></p>
+<p>
+Bagong Ilog is situated at approximately 14.5673, 121.0681, in the island of Luzon. Elevation at these coordinates is estimated at 19.8 meters or 65.0 feet above mean sea level.</p>
+
+
+<h3><a class="bold">Ugong, Pasig City</a></h3>
+
+<p>Ugong is a barangay in the city of Pasig. Its population as determined by the 2015 Census was 22,510. This represented 2.98% of the total population of Pasig.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Ugong is 25 to 29, with 2,646 individuals. Conversely, the age group with the lowest population is 75 to 79, with 235 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Ugong grew from 16,331 in 1990 to 22,510 in 2015, an increase of 6,179 people. The latest census figures in 2015 denote a positive growth rate of 0.85%, or an increase of 984 people, from the previous population of 21,526 in 2010.</p>
+
+<h1><a class="bold" name="Makati">Makati City</a></h1>
+
+<h3>East Rembo, Makati City</h3>
+
+<p>East Rembo is a barangay in the city of Makati. Its population as determined by the 2015 Census was 28,114. This represented 4.83% of the total population of Makati.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in East Rembo is 25 to 29, with 3,035 individuals. Conversely, the age group with the lowest population is 75 to 79, with 188 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of East Rembo grew from 25,727 in 1990 to 28,114 in 2015, an increase of 2,387 people. The latest census figures in 2015 denote a positive growth rate of 1.18%, or an increase of 1,681 people, from the previous population of 26,433 in 2010.</p>
+
+<p><a class="bold">Location</a></p>
+<p>
+East Rembo is situated at approximately 14.5547, 121.0613, in the island of Luzon. Elevation at these coordinates is estimated at 19.9 meters or 65.3 feet above mean sea level.</p>
+
+
+<h3><a class="bold">Pembo, Makati City</a></h3>
+
+<p>Pembo is a barangay in the city of Makati. Its population as determined by the 2015 Census was 48,275. This represented 8.29% of the total population of Makati.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Pembo is 25 to 29, with 5,911 individuals. Conversely, the age group with the lowest population is 75 to 79, with 262 individuals.</p>
+
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Pembo fell from 51,570 in 1990 to 48,275 in 2015, a decrease of 3,295 people. The latest census figures in 2015 denote a positive growth rate of 1.43%, or an increase of 3,472 people, from the previous population of 44,803 in 2010.</p>
+
+<p><a class="bold">Location</a></p>
+<p>
+Pembo is situated at approximately 14.5459, 121.0597, in the island of Luzon. Elevation at these coordinates is estimated at 10.0 meters or 32.8 feet above mean sea level.</p>
+
+
+<h3><a class="bold">Rizal, Makati City</a></h3>
+<p>Rizal is a barangay in the city of Makati. Its population as determined by the 2015 Census was 42,635. This represented 7.32% of the total population of Makati.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Rizal is 25 to 29, with 4,512 individuals. Conversely, the age group with the lowest population is 80 and over, with 156 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Rizal grew from 37,022 in 2000 to 42,635 in 2015, an increase of 5,613 people. The latest census figures in 2015 denote a positive growth rate of 0.30%, or an increase of 676 people, from the previous population of 41,959 in 2010.</p>
+
+<h3><a class="bold">Comembo, Makati City</a></h3>
+
+<p>Comembo is a barangay in the city of Makati. Its population as determined by the 2015 Census was 16,818. This represented 2.89% of the total population of Makati.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Comembo is 25 to 29, with 1,759 individuals. Conversely, the age group with the lowest population is 75 to 79, with 119 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Comembo grew from 13,858 in 1990 to 16,818 in 2015, an increase of 2,960 people. The latest census figures in 2015 denote a positive growth rate of 2.95%, or an increase of 2,385 people, from the previous population of 14,433 in 2010.</p>
+
+<p><a class="bold">Location</a></p>
+<p>
+Comembo is situated at approximately 14.5500, 121.0643, in the island of Luzon. Elevation at these coordinates is estimated at 8.0 meters or 26.2 feet above mean sea level.</p>
+
+<h1><a class="bold" name="Taguig">Taguig City</a></h1>
+
+<h3>Bagumbayan, Taguig City</h3>
+
+<p>Bagumbayan is a barangay in the city of Taguig. Its population as determined by the 2015 Census was 40,685. This represented 5.05% of the total population of Taguig.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Bagumbayan is 20 to 24, with 4,300 individuals. Conversely, the age group with the lowest population is 80 and over, with 172 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Bagumbayan grew from 20,817 in 1990 to 40,685 in 2015, an increase of 19,868 people. The latest census figures in 2015 denote a positive growth rate of 3.87%, or an increase of 7,351 people, from the previous population of 33,334 in 2010.</p>
+
+<h3><a class="bold">Bagong Tanyag, Taguig City</a></h3>
+
+<p>Tanyag, formerly Bagong Tanyag, is a barangay in the city of Taguig. Its population as determined by the 2015 Census was 22,711. This represented 2.82% of the total population of Taguig.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Tanyag is 25 to 29, with 2,590 individuals. Conversely, the age group with the lowest population is 80 and over, with 76 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Tanyag grew from 21,692 in 1990 to 22,711 in 2015, an increase of 1,019 people. The latest census figures in 2015 denote a positive growth rate of 1.35%, or an increase of 1,550 people, from the previous population of 21,161 in 2010.</p>
+
+<p><a class="bold">Location</a></p>
+<p>
+Tanyag is situated at approximately 14.4778, 121.0478, in the island of Luzon. Elevation at these coordinates is estimated at 41.1 meters or 134.8 feet above mean sea level.</p>
+
+<h3><a class="bold">Upper Bicutan, Taguig City</a></h3>
+
+<p>Upper Bicutan is a barangay in the city of Taguig. Its population as determined by the 2015 Census was 41,216. This represented 5.12% of the total population of Taguig.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Upper Bicutan is 25 to 29, with 4,447 individuals. Conversely, the age group with the lowest population is 80 and over, with 111 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Upper Bicutan grew from 40,522 in 1990 to 41,216 in 2015, an increase of 694 people. The latest census figures in 2015 denote a positive growth rate of 1.06%, or an increase of 2,211 people, from the previous population of 39,005 in 2010.
+</p>
+<p><a class="bold">Location</a></p>
+<p>
+Upper Bicutan is situated at approximately 14.4924, 121.0523, in the island of Luzon. Elevation at these coordinates is estimated at 22.9 meters or 75.1 feet above mean sea level.</p>
+
+<h3><a class="bold">Central Bicutan, Taguig City</a></h3>
+<p>Central Bicutan is a barangay in the city of Taguig. Its population as determined by the 2015 Census was 28,705. This represented 3.57% of the total population of Taguig.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Central Bicutan is 25 to 29, with 3,291 individuals. Conversely, the age group with the lowest population is 80 and over, with 96 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Central Bicutan grew from 25,514 in 2010 to 28,705 in 2015, an increase of 3,191 people. This denoted a positive growth rate of 2.27%.
+</p>
+<h3><a class="bold">Lower Bicutan, Taguig City</a></h3>
+
+<p>Lower Bicutan is a barangay in the city of Taguig. Its population as determined by the 2015 Census was 56,754. This represented 7.05% of the total population of Taguig.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Lower Bicutan is 25 to 29, with 6,917 individuals. Conversely, the age group with the lowest population is 80 and over, with 154 individuals.
+</p>
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Lower Bicutan grew from 32,121 in 1990 to 56,754 in 2015, an increase of 24,633 people. The latest census figures in 2015 denote a positive growth rate of 4.24%, or an increase of 11,113 people, from the previous population of 45,641 in 2010.</p>
+
+<p><a class="bold">Location</a></p>
+<p>
+Lower Bicutan is situated at approximately 14.5011, 121.0608, in the island of Luzon. Elevation at these coordinates is estimated at 7.1 meters or 23.3 feet above mean sea level.</p>
+
+<h3><a class="bold">Maharlika Village, Taguig City</a></h3>
+
+<p>Maharlika Village is a barangay in the city of Taguig. Its population as determined by the 2015 Census was 22,944. This represented 2.85% of the total population of Taguig.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Maharlika Village is 5 to 9, with 2,549 individuals. Conversely, the age group with the lowest population is 80 and over, with 46 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Maharlika Village grew from 2,974 in 1990 to 22,944 in 2015, an increase of 19,970 people. The latest census figures in 2015 denote a positive growth rate of 4.97%, or an increase of 5,163 people, from the previous population of 17,781 in 2010.</p>
+
+<p><a class="bold">Location</a></p>
+<p>
+Maharlika Village is situated at approximately 14.4990, 121.0540, in the island of Luzon. Elevation at these coordinates is estimated at 14.6 meters or 47.9 feet above mean sea level.</p>
+
+
+<h3><a class="bold">Pinagsama, Taguig City</a></h3>
+
+<p>Pinagsama is a barangay in the city of Taguig. Its population as determined by the 2015 Census was 57,343. This represented 7.12% of the total population of Taguig.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Pinagsama is 20 to 24, with 6,405 individuals. Conversely, the age group with the lowest population is 80 and over, with 176 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Pinagsama grew from 23,612 in 2010 to 57,343 in 2015, an increase of 33,731 people. This denoted a positive growth rate of 18.40%.</p>
+
+<h3><a class="bold">North Signal Village, Taguig City</a></h3>
+
+<p>North Signal Village is a barangay in the city of Taguig. Its population as determined by the 2015 Census was 32,112. This represented 3.99% of the total population of Taguig.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in North Signal Village is 25 to 29, with 3,692 individuals. Conversely, the age group with the lowest population is 80 and over, with 113 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of North Signal Village grew from 25,921 in 2010 to 32,112 in 2015, an increase of 6,191 people. This denoted a positive growth rate of 4.16%.</p>
+
+<h3><a class="bold">Central Signal Village, Taguig City</a></h3>
+
+<p>Central Signal Village, formerly Signal Village, is a barangay in the city of Taguig. Its population as determined by the 2015 Census was 39,674. This represented 4.93% of the total population of Taguig.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Central Signal Village is 25 to 29, with 4,711 individuals. Conversely, the age group with the lowest population is 80 and over, with 157 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Central Signal Village fell from 45,213 in 1990 to 39,674 in 2015, a decrease of 5,539 people. The latest census figures in 2015 denote a positive growth rate of 2.00%, or an increase of 3,922 people, from the previous population of 35,752 in 2010.</p>
+
+<p><a class="bold">Location</a></p>
+<p>
+Central Signal Village is situated at approximately 14.5093, 121.0550, in the island of Luzon. Elevation at these coordinates is estimated at 19.4 meters or 63.6 feet above mean sea level.</p>
+
+<h3><a class="bold">South Signal Village, Taguig City</a></h3>
+
+<p>South Signal Village is a barangay in the city of Taguig. Its population as determined by the 2015 Census was 39,214. This represented 4.87% of the total population of Taguig.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in South Signal Village is 25 to 29, with 4,714 individuals. Conversely, the age group with the lowest population is 80 and over, with 147 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of South Signal Village grew from 34,118 in 2010 to 39,214 in 2015, an increase of 5,096 people. This denoted a positive growth rate of 2.69%.</p>
+
+<h3><a class="bold">Ususan, Taguig City</a></h3>
+
+<p>Ususan is a barangay in the city of Taguig. Its population as determined by the 2015 Census was 54,186. This represented 6.73% of the total population of Taguig.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Ususan is 25 to 29, with 5,937 individuals. Conversely, the age group with the lowest population is 80 and over, with 176 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Ususan grew from 10,834 in 1990 to 54,186 in 2015, an increase of 43,352 people. The latest census figures in 2015 denote a positive growth rate of 10.40%, or an increase of 21,963 people, from the previous population of 32,223 in 2010.
+</p>
+<p><a class="bold">Location</a></p>
+<p>
+Ususan is situated at approximately 14.5363, 121.0682, in the island of Luzon. Elevation at these coordinates is estimated at 7.4 meters or 24.3 feet above mean sea level.</p>
+
+<h3><a class="bold">South Daang Hari, Taguig City</a></h3>
+
+<p>South Daang Hari is a barangay in the city of Taguig. Its population as determined by the 2015 Census was 19,166. This represented 2.38% of the total population of Taguig.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in South Daang Hari is 20 to 24, with 2,096 individuals. Conversely, the age group with the lowest population is 80 and over, with 47 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of South Daang Hari grew from 17,220 in 2010 to 19,166 in 2015, an increase of 1,946 people. This denoted a positive growth rate of 2.06%.</p>
+
+<h1><a class="bold" name="Muntinlupa">Muntinlupa City</a></h1>
+
+<h3>Alabang, Muntinlupa City</h3>
+
+<p>Alabang is a barangay in the city of Muntinlupa. Its population as determined by the 2015 Census was 63,793. This represented 12.64% of the total population of Muntinlupa.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Alabang is 25 to 29, with 7,904 individuals. Conversely, the age group with the lowest population is 80 and over, with 172 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Alabang grew from 47,327 in 1990 to 63,793 in 2015, an increase of 16,466 people. The latest census figures in 2015 denote a positive growth rate of 2.25%, or an increase of 7,041 people, from the previous population of 56,752 in 2010.
+</p>
+<p><a class="bold">Location</a></p>
+<p>
+Alabang is situated at approximately 14.4187, 121.0405, in the island of Luzon. Elevation at these coordinates is estimated at 25.5 meters or 83.7 feet above mean sea level.</p>
+
+<h3><a class="bold">Bayanan, Muntinlupa City</a></h3>
+
+<p>Bayanan is a barangay in the city of Muntinlupa. Its population as determined by the 2015 Census was 36,673. This represented 7.27% of the total population of Muntinlupa.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Bayanan is 20 to 24, with 3,854 individuals. Conversely, the age group with the lowest population is 80 and over, with 157 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Bayanan grew from 28,649 in 1990 to 36,673 in 2015, an increase of 8,024 people. The latest census figures in 2015 denote a positive growth rate of 0.68%, or an increase of 1,281 people, from the previous population of 35,392 in 2010.
+</p>
+<p><a class="bold">Location</a></p>
+<p>
+Bayanan is situated at approximately 14.4093, 121.0460, in the island of Luzon. Elevation at these coordinates is estimated at 13.0 meters or 42.7 feet above mean sea level.</p>
+
+
+<h3><a class="bold">Buli, Muntinlupa City</a></h3>
+
+<p>Buli is a barangay in the city of Muntinlupa. Its population as determined by the 2015 Census was 9,292. This represented 1.84% of the total population of Muntinlupa.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+
+According to the 2015 Census, the age group with the highest population in Buli is 30 to 34, with 841 individuals. Conversely, the age group with the lowest population is 80 and over, with 39 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Buli grew from 8,393 in 1990 to 9,292 in 2015, an increase of 899 people. The latest census figures in 2015 denote a positive growth rate of 4.65%, or an increase of 1,973 people, from the previous population of 7,319 in 2010.
+</p>
+<p><a class="bold">Location</a></p>
+<p>
+Buli is situated at approximately 14.4507, 121.0460, in the island of Luzon. Elevation at these coordinates is estimated at 12.5 meters or 41.0 feet above mean sea level.</p>
+
+<h3><a class="bold">Cupang, Muntinlupa City</a></h3>
+
+<p>Cupang is a barangay in the city of Muntinlupa. Its population as determined by the 2015 Census was 58,331. This represented 11.56% of the total population of Muntinlupa.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Cupang is 25 to 29, with 6,585 individuals. Conversely, the age group with the lowest population is 80 and over, with 313 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Cupang grew from 35,487 in 1990 to 58,331 in 2015, an increase of 22,844 people. The latest census figures in 2015 denote a positive growth rate of 0.44%, or an increase of 1,318 people, from the previous population of 57,013 in 2010.
+</p>
+<p><a class="bold">Location</a></p>
+<p>
+Cupang is situated at approximately 14.4352, 121.0389, in the island of Luzon. Elevation at these coordinates is estimated at 23.8 meters or 78.1 feet above mean sea level.</p>
+
+<h3><a class="bold">Poblacion, Muntinlupa City</a></h3>
+
+<p>Poblacion is a barangay in the city of Muntinlupa. Its population as determined by the 2015 Census was 115,387. This represented 22.87% of the total population of Muntinlupa.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Poblacion is 30 to 34, with 15,566 individuals. Conversely, the age group with the lowest population is 80 and over, with 438 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Poblacion grew from 32,716 in 1990 to 115,387 in 2015, an increase of 82,671 people. The latest census figures in 2015 denote a positive growth rate of 2.17%, or an increase of 12,283 people, from the previous population of 103,104 in 2010.
+</p>
+<p><a class="bold">Location</a></p>
+<p>
+Poblacion is situated at approximately 14.3827, 121.0249, in the island of Luzon. Elevation at these coordinates is estimated at 39.0 meters or 128.0 feet above mean sea level.</p>
+
+
+<h3><a class="bold">Putatan, Muntinlupa City</a></h3>
+
+<p>Putatan is a barangay in the city of Muntinlupa. Its population as determined by the 2015 Census was 89,022. This represented 17.65% of the total population of Muntinlupa.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Putatan is 20 to 24, with 8,988 individuals. Conversely, the age group with the lowest population is 80 and over, with 459 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Putatan grew from 51,398 in 1990 to 89,022 in 2015, an increase of 37,624 people. The latest census figures in 2015 denote a positive growth rate of 1.57%, or an increase of 7,007 people, from the previous population of 82,015 in 2010.
+</p>
+<p><a class="bold">Location</a></p>
+<p>
+Putatan is situated at approximately 14.3981, 121.0380, in the island of Luzon. Elevation at these coordinates is estimated at 29.4 meters or 96.5 feet above mean sea level.</p>
+
+<h3><a class="bold">Sucat, Muntinlupa City</a></h3>
+
+<p>Sucat is a barangay in the city of Muntinlupa. Its population as determined by the 2015 Census was 57,504. This represented 11.40% of the total population of Muntinlupa.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Sucat is 25 to 29, with 5,986 individuals. Conversely, the age group with the lowest population is 80 and over, with 191 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Sucat grew from 31,328 in 1990 to 57,504 in 2015, an increase of 26,176 people. The latest census figures in 2015 denote a positive growth rate of 3.93%, or an increase of 10,540 people, from the previous population of 46,964 in 2010.
+</p>
+<p><a class="bold">Location</a></p>
+<p>
+Sucat is situated at approximately 14.4624, 121.0496, in the island of Luzon. Elevation at these coordinates is estimated at 17.2 meters or 56.4 feet above mean sea level.</p>
+
+<h3><a class="bold">Tunasan, Muntinlupa City</a></h3>
+
+<p>Tunasan is a barangay in the city of Muntinlupa. Its population as determined by the 2015 Census was 53,078. This represented 10.52% of the total population of Muntinlupa.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Tunasan is 20 to 24, with 5,441 individuals. Conversely, the age group with the lowest population is 80 and over, with 332 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Tunasan grew from 30,878 in 1990 to 53,078 in 2015, an increase of 22,200 people. The latest census figures in 2015 denote a positive growth rate of 0.75%, or an increase of 2,045 people, from the previous population of 51,033 in 2010.
+</p>
+<p><a class="bold">Location</a></p>
+<p>
+Tunasan is situated at approximately 14.3704, 121.0314, in the island of Luzon. Elevation at these coordinates is estimated at 56.1 meters or 184.1 feet above mean sea level.</p>
+
+<h1><a class="bold" name="Bulacan">Bulacan</a></h1>
+
+<h3>San Isidro, San Jose Del Monte City, Bulacan</h3>
+
+<p>San Isidro is a barangay in the city of San Jose del Monte, in the province of Bulacan. Its population as determined by the 2015 Census was 5,767. This represented 1.00% of the total population of San Jose del Monte.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in San Isidro is 5 to 9, with 717 individuals. Conversely, the age group with the lowest population is 80 and over, with 17 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of San Isidro grew from 1,822 in 1995 to 5,767 in 2015, an increase of 3,945 people. The latest census figures in 2015 denote a positive growth rate of 18.45%, or an increase of 3,397 people, from the previous population of 2,370 in 2010.
+</p>
+<p><a class="bold">Location</a></p>
+<p>
+San Isidro is situated at approximately 14.8013, 121.1493, in the island of Luzon. Elevation at these coordinates is estimated at 259.8 meters or 852.4 feet above mean sea level.</p>
+
+<h3><a class="bold">Ciudad Real, San Jose Del Monte City, Bulacan</a></h3>
+
+<p>Ciudad Real is a barangay in the city of San Jose del Monte, in the province of Bulacan. Its population as determined by the 2015 Census was 2,519. This represented 0.44% of the total population of San Jose del Monte.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Ciudad Real is 15 to 19, with 391 individuals. Conversely, the age group with the lowest population is 80 and over, with 17 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Ciudad Real grew from 2,137 in 1995 to 2,519 in 2015, an increase of 382 people. The latest census figures in 2015 denote a positive growth rate of 1.43%, or an increase of 181 people, from the previous population of 2,338 in 2010.
+</p>
+<p><a class="bold">Location</a></p>
+<p>
+Ciudad Real is situated at approximately 14.7890, 121.1307, in the island of Luzon. Elevation at these coordinates is estimated at 224.6 meters or 736.9 feet above mean sea level.</p>
+
+<h3><a class="bold">San Roque, San Jose Del Monte City, Bulacan</a></h3>
+
+<p>San Roque is a barangay in the city of San Jose del Monte, in the province of Bulacan. Its population as determined by the 2015 Census was 2,188. This represented 0.38% of the total population of San Jose del Monte.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in San Roque is 5 to 9, with 291 individuals. Conversely, the age group with the lowest population is 75 to 79, with 9 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of San Roque grew from 936 in 1995 to 2,188 in 2015, an increase of 1,252 people. The latest census figures in 2015 denote a positive growth rate of 5.93%, or an increase of 571 people, from the previous population of 1,617 in 2010.
+</p>
+<p><a class="bold">Location</a></p>
+<p>
+San Roque is situated at approximately 14.8231, 121.1405, in the island of Luzon. Elevation at these coordinates is estimated at 251.7 meters or 825.8 feet above mean sea level.</p>
+
+
+<h3><a class="bold">San Lorenzo, Norzaragay, Bulacan</a></h3>
+
+<p>San Lorenzo is a barangay in the municipality of Norzagaray, in the province of Bulacan. Its population as determined by the 2015 Census was 1,990. This represented 1.79% of the total population of Norzagaray.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in San Lorenzo is 15 to 19, with 254 individuals. Conversely, the age group with the lowest population is 80 and over, with 8 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of San Lorenzo grew from 1,339 in 1990 to 1,990 in 2015, an increase of 651 people. The latest census figures in 2015 denote a positive growth rate of 0.10%, or an increase of 10 people, from the previous population of 1,980 in 2010.</p>
+
+<p><a class="bold">Location</a></p>
+<p>
+San Lorenzo is situated at approximately 14.8749, 121.2287, in the island of Luzon. Elevation at these coordinates is estimated at 750.5 meters or 2,462.2 feet above mean sea level.</p>
+
+
+<h3><a class="bold">Camachin, Doña Remedios Trinidad, Bulacan</a></h3>
+
+<p>Camachin is a barangay in the municipality of Doña Remedios Trinidad, in the province of Bulacan. Its population as determined by the 2015 Census was 1,043. This represented 4.60% of the total population of Doña Remedios Trinidad.
+</p>
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Camachin is 1 to 4, with 134 individuals. Conversely, the age group with the lowest population is 80 and over, with 3 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Camachin grew from 427 in 1990 to 1,043 in 2015, an increase of 616 people. The latest census figures in 2015 denote a negative growth rate of 2.16%, or a decrease of 127 people, from the previous population of 1,170 in 2010.</p>
+
+<h3><a class="bold">Kabayunan, Doña Remedios Trinidad, Bulacan</a></h3>
+
+<p>Kabayunan is a barangay in the municipality of Doña Remedios Trinidad, in the province of Bulacan. Its population as determined by the 2015 Census was 1,745. This represented 7.70% of the total population of Doña Remedios Trinidad.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Kabayunan is 15 to 19, with 212 individuals. Conversely, the age group with the lowest population is 80 and over, with 5 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Kabayunan grew from 911 in 1990 to 1,745 in 2015, an increase of 834 people. The latest census figures in 2015 denote a positive growth rate of 2.03%, or an increase of 175 people, from the previous population of 1,570 in 2010.</p>
+
+<p><a class="bold">Location</a></p>
+<p>
+Kabayunan is situated at approximately 14.9231, 121.2175, in the island of Luzon. Elevation at these coordinates is estimated at 541.0 meters or 1,774.9 feet above mean sea level. </p>
+
+<h3><a class="bold">Sapang Bulak, Doña Remedios Trinidad, Bulacan</a></h3>
+
+<p>Sapang Bulak is a barangay in the municipality of Doña Remedios Trinidad, in the province of Bulacan. Its population as determined by the 2015 Census was 2,620. This represented 11.56% of the total population of Doña Remedios Trinidad.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Sapang Bulak is 5 to 9, with 324 individuals. Conversely, the age group with the lowest population is 80 and over, with 12 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Sapang Bulak grew from 1,200 in 1995 to 2,620 in 2015, an increase of 1,420 people. The latest census figures in 2015 denote a positive growth rate of 0.32%, or an increase of 43 people, from the previous population of 2,577 in 2010.</p>
+
+<p><a class="bold">Location</a></p>
+<p>
+Sapang Bulak is situated at approximately 14.9898, 121.2047, in the island of Luzon. Elevation at these coordinates is estimated at 320.3 meters or 1,050.8 feet above mean sea level.</p>
+
+<h3><a class="bold">Bayabas, Doña Remedios Trinidad, Bulacan</a></h3>
+
+<p>Bayabas is a barangay in the municipality of Doña Remedios Trinidad, in the province of Bulacan. Its population as determined by the 2015 Census was 1,575. This represented 6.95% of the total population of Doña Remedios Trinidad.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Bayabas is 5 to 9, with 173 individuals. Conversely, the age group with the lowest population is 80 and over, with 13 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Bayabas grew from 1,038 in 1990 to 1,575 in 2015, an increase of 537 people. The latest census figures in 2015 denote a positive growth rate of 3.69%, or an increase of 273 people, from the previous population of 1,302 in 2010.</p>
+
+<p><a class="bold">Location</a></p>
+<p>
+Bayabas is situated at approximately 14.9429, 121.2116, in the island of Luzon. Elevation at these coordinates is estimated at 439.6 meters or 1,442.2 feet above mean sea level.</p>
+
+
+<h3><a class="bold">Camachile, Doña Remedios Trinidad, Bulacan</a></h3>
+
+<p>Camachile is a barangay in the municipality of Doña Remedios Trinidad, in the province of Bulacan. Its population as determined by the 2015 Census was 4,166. This represented 18.38% of the total population of Doña Remedios Trinidad.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Camachile is 5 to 9, with 471 individuals. Conversely, the age group with the lowest population is 80 and over, with 19 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Camachile grew from 2,206 in 1990 to 4,166 in 2015, an increase of 1,960 people. The latest census figures in 2015 denote a positive growth rate of 3.75%, or an increase of 733 people, from the previous population of 3,433 in 2010.</p>
+
+<p><a class="bold">Location</a></p>
+<p>
+Camachile is situated at approximately 14.9676, 121.2077, in the island of Luzon. Elevation at these coordinates is estimated at 365.2 meters or 1,198.1 feet above mean sea level.</p>
+
+
+<h3><a class="bold">Pulong Sampalok, Doña Remedios Trinidad, Bulacan</a></h3>
+
+<p>Pulong Sampalok is a barangay in the municipality of Doña Remedios Trinidad, in the province of Bulacan. Its population as determined by the 2015 Census was 2,859. This represented 12.62% of the total population of Doña Remedios Trinidad.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Pulong Sampalok is 5 to 9, with 303 individuals. Conversely, the age group with the lowest population is 70 to 74, with 20 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Pulong Sampalok grew from 1,319 in 1990 to 2,859 in 2015, an increase of 1,540 people. The latest census figures in 2015 denote a positive growth rate of 1.34%, or an increase of 193 people, from the previous population of 2,666 in 2010.</p>
+
+<h1><a class="bold" name="Laguna">Laguna</a></h1>
+
+<h3>Calendola, San Pedro, Laguna</h3>
+
+<p>Calendola is a barangay in the city of San Pedro, in the province of Laguna. Its population as determined by the 2015 Census was 4,728. This represented 1.45% of the total population of San Pedro.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Calendola is 20 to 24, with 452 individuals. Conversely, the age groups with the lowest population are in the ranges 75 to 79, and 80 and over, with 50 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Calendola grew from 3,268 in 1990 to 4,728 in 2015, an increase of 1,460 people. The latest census figures in 2015 denote a positive growth rate of 4.07%, or an increase of 893 people, from the previous population of 3,835 in 2010.</p>
+
+<p><a class="bold">Location</a></p>
+<p>
+Calendola is situated at approximately 14.3555, 121.0478, in the island of Luzon. Elevation at these coordinates is estimated at 18.9 meters or 62.0 feet above mean sea level.</p>
+
+<h3><a class="bold">GSIS, San Pedro, Laguna</a></h3>
+
+<p>G.S.I.S. is a barangay in the city of San Pedro, in the province of Laguna. Its population as determined by the 2015 Census was 2,867. This represented 0.88% of the total population of San Pedro.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in G.S.I.S. is 10 to 14, with 299 individuals. Conversely, the age group with the lowest population is 75 to 79, with 20 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of G.S.I.S. grew from 1,500 in 1990 to 2,867 in 2015, an increase of 1,367 people. The latest census figures in 2015 denote a positive growth rate of 2.51%, or an increase of 350 people, from the previous population of 2,517 in 2010.</p>
+
+<p><a class="bold">Location</a></p>
+<p>
+G.S.I.S. is situated at approximately 14.3428, 121.0182, in the island of Luzon. Elevation at these coordinates is estimated at 80.8 meters or 265.1 feet above mean sea level.</p>
+
+
+<h3><a class="bold">Sampaguita Village, San Pedro, Laguna</a></h3>
+
+<p>Sampaguita Village is a barangay in the city of San Pedro, in the province of Laguna. Its population as determined by the 2015 Census was 5,733. This represented 1.76% of the total population of San Pedro.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Sampaguita Village is 15 to 19, with 578 individuals. Conversely, the age group with the lowest population is 80 and over, with 45 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Sampaguita Village grew from 3,324 in 1990 to 5,733 in 2015, an increase of 2,409 people. The latest census figures in 2015 denote a positive growth rate of 1.35%, or an increase of 391 people, from the previous population of 5,342 in 2010.</p>
+
+<p><a class="bold">Location</a></p>
+<p>
+Sampaguita Village is situated at approximately 14.3542, 121.0416, in the island of Luzon. Elevation at these coordinates is estimated at 22.9 meters or 75.1 feet above mean sea level.</p>
+
+<h3><a class="bold">San Antonio, San Pedro, Laguna</a></h3>
+<p>San Antonio is a barangay in the city of San Pedro, in the province of Laguna. Its population as determined by the 2015 Census was 61,428. This represented 18.85% of the total population of San Pedro.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in San Antonio is 20 to 24, with 5,993 individuals. Conversely, the age group with the lowest population is 80 and over, with 300 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of San Antonio grew from 21,270 in 1990 to 61,428 in 2015, an increase of 40,158 people. The latest census figures in 2015 denote a positive growth rate of 3.19%, or an increase of 9,354 people, from the previous population of 52,074 in 2010.</p>
+
+<p><a class="bold">Location</a></p>
+<p>
+San Antonio is situated at approximately 14.3662, 121.0505, in the island of Luzon. Elevation at these coordinates is estimated at 13.9 meters or 45.6 feet above mean sea level.</p>
+
+<h3><a class="bold">San Vicente, San Pedro, Laguna</a></h3>
+
+<p>San Vicente is a barangay in the city of San Pedro, in the province of Laguna. Its population as determined by the 2015 Census was 26,129. This represented 8.02% of the total population of San Pedro.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in San Vicente is 5 to 9, with 2,553 individuals. Conversely, the age group with the lowest population is 80 and over, with 129 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of San Vicente fell from 58,796 in 1990 to 26,129 in 2015, a decrease of 32,667 people. The latest census figures in 2015 denote a negative growth rate of 21.32%, or a decrease of 65,963 people, from the previous population of 92,092 in 2010.
+</p>
+<p><a class="bold">Location</a></p>
+<p>
+San Vicente is situated at approximately 14.3502, 121.0557, in the island of Luzon. Elevation at these coordinates is estimated at 13.9 meters or 45.6 feet above mean sea level.</p>
+
+<h3><a class="bold">Riverside, San Pedro, Laguna</a></h3>
+
+<p>Riverside is a barangay in the city of San Pedro, in the province of Laguna. Its population as determined by the 2015 Census was 3,226. This represented 0.99% of the total population of San Pedro.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Riverside is 15 to 19, with 355 individuals. Conversely, the age groups with the lowest population are in the ranges 70 to 74, and 80 and over, with 17 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Riverside grew from 826 in 1990 to 3,226 in 2015, an increase of 2,400 people. The latest census figures in 2015 denote a positive growth rate of 3.25%, or an increase of 499 people, from the previous population of 2,727 in 2010.</p>
+<p><a class="bold">Location</a></p>
+<p>
+Riverside is situated at approximately 14.3430, 121.0374, in the island of Luzon. Elevation at these coordinates is estimated at 36.9 meters or 121.1 feet above mean sea level.</p>
+
+<h3><a class="bold">United Bayanihan, San Pedro, Laguna</a></h3>
+
+<p>United Bayanihan is a barangay in the city of San Pedro, in the province of Laguna. Its population as determined by the 2015 Census was 7,086. This represented 2.17% of the total population of San Pedro.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in United Bayanihan is 15 to 19, with 778 individuals. Conversely, the age group with the lowest population is 80 and over, with 30 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of United Bayanihan grew from 1,741 in 1990 to 7,086 in 2015, an increase of 5,345 people. The latest census figures in 2015 denote a positive growth rate of 1.53%, or an increase of 544 people, from the previous population of 6,542 in 2010.</p>
+
+<p><a class="bold">Location</a></p>
+<p>
+United Bayanihan is situated at approximately 14.3430, 121.0450, in the island of Luzon. Elevation at these coordinates is estimated at 31.7 meters or 104.0 feet above mean sea level.</p></p>
+
+<h3><a class="bold">Biñan, Biñan, Laguna</a></h3>
+
+<p>Biñan, formerly Poblacion, is a barangay in the city of Biñan, in the province of Laguna. Its population as determined by the 2015 Census was 4,149. This represented 1.25% of the total population of Biñan.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Biñan is 20 to 24, with 432 individuals. Conversely, the age group with the lowest population is 80 and over, with 37 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Biñan grew from 310 in 1990 to 4,149 in 2015, an increase of 3,839 people. The latest census figures in 2015 denote a positive growth rate of 1.94%, or an increase of 399 people, from the previous population of 3,750 in 2010.</p>
+
+<p><a class="bold">Location</a></p>
+<p>
+Biñan is situated at approximately 14.2619, 121.0490, in the island of Luzon. Elevation at these coordinates is estimated at 81.2 meters or 266.4 feet above mean sea level.</p>
+
+<h3><a class="bold">Malamig, Biñan, Laguna</a></h3>
+
+<p>Malamig is a barangay in the city of Biñan, in the province of Laguna. Its population as determined by the 2015 Census was 4,064. This represented 1.22% of the total population of Biñan.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Malamig is 20 to 24, with 876 individuals. Conversely, the age group with the lowest population is 80 and over, with 6 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Malamig grew from 131 in 1990 to 4,064 in 2015, an increase of 3,933 people. The latest census figures in 2015 denote a positive growth rate of 6.43%, or an increase of 1,135 people, from the previous population of 2,929 in 2010.</p>
+
+<p><a class="bold">Location</a></p>
+<p>
+Malamig is situated at approximately 14.2720, 121.0451, in the island of Luzon. Elevation at these coordinates is estimated at 62.1 meters or 203.7 feet above mean sea level.</p>
+
+
+<h3><a class="bold">San Francisco, Biñan, Laguna</a></h3>
+
+<p>San Francisco, formerly Halang, is a barangay in the city of Biñan, in the province of Laguna. Its population as determined by the 2015 Census was 28,669. This represented 8.61% of the total population of Biñan.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in San Francisco is 30 to 34, with 2,794 individuals. Conversely, the age group with the lowest population is 80 and over, with 137 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of San Francisco grew from 9,417 in 1990 to 28,669 in 2015, an increase of 19,252 people. The latest census figures in 2015 denote a positive growth rate of 3.92%, or an increase of 5,240 people, from the previous population of 23,429 in 2010.</p>
+
+<p><a class="bold">Location</a></p>
+<p>
+San Francisco is situated at approximately 14.3293, 121.0360, in the island of Luzon. Elevation at these coordinates is estimated at 72.8 meters or 238.8 feet above mean sea level.</p>
+
+<h3><a class="bold">Sto. Domingo, Sta. Rosa, Laguna</a></h3>
+
+<p>Santo Domingo is a barangay in the city of Santa Rosa, in the province of Laguna. Its population as determined by the 2015 Census was 4,092. This represented 1.16% of the total population of Santa Rosa.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Santo Domingo is 25 to 29, with 521 individuals. Conversely, the age group with the lowest population is 80 and over, with 19 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Santo Domingo grew from 867 in 1990 to 4,092 in 2015, an increase of 3,225 people. The latest census figures in 2015 denote a positive growth rate of 4.93%, or an increase of 914 people, from the previous population of 3,178 in 2010.
+</p>
+<p><a class="bold">Location</a></p>
+<p>
+Santo Domingo is situated at approximately 14.2422, 121.0660, in the island of Luzon. Elevation at these coordinates is estimated at 90.9 meters or 298.2 feet above mean sea level.</p>
+
+
+<h3><a class="bold">Casile, Cabuyao, Laguna</a></h3>
+
+<p>Casile is a barangay in the city of Cabuyao, in the province of Laguna. Its population as determined by the 2015 Census was 2,393. This represented 0.78% of the total population of Cabuyao.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Casile is 10 to 14, with 278 individuals. Conversely, the age group with the lowest population is 75 to 79, with 14 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Casile grew from 980 in 1990 to 2,393 in 2015, an increase of 1,413 people. The latest census figures in 2015 denote a positive growth rate of 2.26%, or an increase of 265 people, from the previous population of 2,128 in 2010.</p>
+
+
+<h3><a class="bold">Canlubang, Calamba, Laguna</a></h3>
+<p>Canlubang is a barangay in the city of Calamba, in the province of Laguna. Its population as determined by the 2015 Census was 54,943. This represented 12.09% of the total population of Calamba.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Canlubang is 20 to 24, with 6,088 individuals. Conversely, the age group with the lowest population is 80 and over, with 282 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Canlubang grew from 20,112 in 1990 to 54,943 in 2015, an increase of 34,831 people. The latest census figures in 2015 denote a positive growth rate of 0.10%, or an increase of 288 people, from the previous population of 54,655 in 2010.
+</p>
+<p><a class="bold">Location</a></p>
+<p>
+Canlubang is situated at approximately 14.1995, 121.0791, in the island of Luzon. Elevation at these coordinates is estimated at 141.5 meters or 464.2 feet above mean sea level.</p>
+
+<h1><a class="bold" name="Cavite">Cavite</a></h1>
+
+<h3>San Jose, Gen. Mariano Alvarez, Cavite</h3>
+
+<p> Jose is a barangay in the municipality of General Mariano Alvarez, in the province of Cavite. Its population as determined by the 2015 Census was 4,104. This represented 2.65% of the total population of General Mariano Alvarez.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in San Jose is 10 to 14, with 426 individuals. Conversely, the age group with the lowest population is 80 and over, with 26 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of San Jose grew from 2,384 in 1990 to 4,104 in 2015, an increase of 1,720 people. The latest census figures in 2015 denote a positive growth rate of 2.08%, or an increase of 420 people, from the previous population of 3,684 in 2010.</p>
+
+<p><a class="bold">Location</a></p>
+<p>
+San Jose is situated at approximately 14.3226, 121.0450, in the island of Luzon. Elevation at these coordinates is estimated at 30.2 meters or 99.1 feet above mean sea level.</p>
+
+
+<h3><a class="bold">Bancal, Carmona, Cavite</a></h3>
+
+<p>Bancal is a barangay in the municipality of Carmona, in the province of Cavite. Its population as determined by the 2015 Census was 14,797. This represented 15.17% of the total population of Carmona.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Bancal is 20 to 24, with 1,868 individuals. Conversely, the age group with the lowest population is 80 and over, with 29 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Bancal grew from 1,894 in 1990 to 14,797 in 2015, an increase of 12,903 people. The latest census figures in 2015 denote a positive growth rate of 5.97%, or an increase of 3,884 people, from the previous population of 10,913 in 2010.</p>
+
+<p><a class="bold">Location</a></p>
+<p>
+Bancal is situated at approximately 14.2895, 121.0171, in the island of Luzon. Elevation at these coordinates is estimated at 162.0 meters or 531.5 feet above mean sea level.</p>
+
+<h3><a class="bold">Cabilang Baybay, Carmona, Cavite</a></h3>
+
+<p>Cabilang Baybay is a barangay in the municipality of Carmona, in the province of Cavite. Its population as determined by the 2015 Census was 8,082. This represented 8.28% of the total population of Carmona.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Cabilang Baybay is 20 to 24, with 913 individuals. Conversely, the age group with the lowest population is 75 to 79, with 28 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Cabilang Baybay grew from 3,732 in 1990 to 8,082 in 2015, an increase of 4,350 people. The latest census figures in 2015 denote a positive growth rate of 4.72%, or an increase of 1,738 people, from the previous population of 6,344 in 2010.</p>
+
+<p><a class="bold">Location</a></p>
+<p>
+Cabilang Baybay is situated at approximately 14.3100, 121.0346, in the island of Luzon. Elevation at these coordinates is estimated at 59.1 meters or 193.9 feet above mean sea level.</p>
+
+<h3><a class="bold">Lantic, Carmona, Cavite</a></h3>
+
+<p>Lantic is a barangay in the municipality of Carmona, in the province of Cavite. Its population as determined by the 2015 Census was 19,462. This represented 19.95% of the total population of Carmona.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Lantic is 30 to 34, with 2,299 individuals. Conversely, the age group with the lowest population is 80 and over, with 78 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Lantic grew from 1,192 in 1990 to 19,462 in 2015, an increase of 18,270 people. The latest census figures in 2015 denote a positive growth rate of 18.02%, or an increase of 11,312 people, from the previous population of 8,150 in 2010.
+</p>
+<p><a class="bold">Location</a></p>
+<p>
+Lantic is situated at approximately 14.2915, 121.0401, in the island of Luzon. Elevation at these coordinates is estimated at 51.9 meters or 170.3 feet above mean sea level.</p>
+
+<h3><a class="bold">Mabuhay, Carmona, Cavite</a></h3>
+
+<p>Mabuhay is a barangay in the municipality of Carmona, in the province of Cavite. Its population as determined by the 2015 Census was 10,095. This represented 10.35% of the total population of Carmona.</p></p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Mabuhay is 20 to 24, with 1,083 individuals. Conversely, the age group with the lowest population is 80 and over, with 47 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Mabuhay grew from 6,814 in 1990 to 10,095 in 2015, an increase of 3,281 people. The latest census figures in 2015 denote a positive growth rate of 1.73%, or an increase of 872 people, from the previous population of 9,223 in 2010.</p>
+
+<p><a class="bold">Location</a></p>
+<p>
+Mabuhay is situated at approximately 14.3078, 121.0410, in the island of Luzon. Elevation at these coordinates is estimated at 40.6 meters or 133.2 feet above mean sea level.</p>
+
+<h3><a class="bold">Carmen, Silang, Cavite</a></h3>
+
+<p>Carmen is a barangay in the municipality of Silang, in the province of Cavite. Its population as determined by the 2015 Census was 2,506. This represented 1.01% of the total population of Silang.
+</p>
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Carmen is 10 to 14, with 265 individuals. Conversely, the age group with the lowest population is 75 to 79, with 10 individuals.</p>
+
+<p><a class="bold">Historical population</a></p>
+<p>
+The population of Carmen grew from 779 in 1990 to 2,506 in 2015, an increase of 1,727 people. The latest census figures in 2015 denote a positive growth rate of 6.87%, or an increase of 738 people, from the previous population of 1,768 in 2010.</p>
+
+<p><a class="bold">Location</a></p>
+<p>
+Carmen is situated at approximately 14.2468, 120.9909, in the island of Luzon. Elevation at these coordinates is estimated at 259.3 meters or 850.7 feet above mean sea level.</p>
+
+<h3><a class="bold">Inchican, Silang, Cavite</a></h3>
+	
+<p>Inchican is a barangay in the municipality of Silang, in the province of Cavite. Its population as determined by the 2015 Census was 5,369. This represented 2.16% of the total population of Silang.</p>
+
+<p><a class="bold">Population by age group</a></p>
+<p>
+According to the 2015 Census, the age group with the highest population in Inchican is 5 to 9, with 568 individuals. Conversely, the age group with the lowest population is 80 and over, with 20 individuals.</p>
+<p><a class="bold">Historical population</a></p>
+<p>The population of Inchican grew from 767 in 1990 to 5,369 in 2015, an increase of 4,602 people. The latest census figures in 2015 denote a positive growth rate of 4.39%, or an increase of 1,085 people, from the previous population of 4,284 in 2010.</p>
+
+<p><a class="bold">Location</a></p>
+<p>Inchican is situated at approximately 14.2389, 121.0382, in the island of Luzon. Elevation at these coordinates is estimated at 157.4 meters or 516.4 feet above mean sea level.</p>
+<br>
+<br>
+<br>
+<p>Note: Data were taken from <a href="https://www.philatlas.com/philippines.html" target="_blank">@PhilAtlas</a> and <a href="https://psa.gov.ph/classification/psgc/" target="_blank">Philippine Statistics Authority.</a></p>
+</section>
+<section class = "sec6">
+<div class="line" style="width:100%; height:200px">
+  <br>
+  <br>
+  <h1>Be IPAS!</h1>
+  <h3>(Be Informed, Be Prepared, Be Alert, Be Safe!)</h3>
+  <p>Visit<a href="https://www.phivolcs.dost.gov.ph/index.php/earthquake/earthquake-information3" target="_blank"> @PhiVolcs</a> for more earthquake updates.</p>
+</div>
+</section>
+
+ <script>
+
+  var mymap = L.map('mapid').setView([14.599512, 120.984222], 10);
+
+  L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+    maxZoom: 18,
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+      '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+      'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    id: 'mapbox/streets-v11'
+  }).addTo(mymap);
+
+  L.circle([14.701710, 121.110360], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Bagong Silangan, Quezon City");
+
+  L.circle([14.606311, 121.082146], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Bagumbayan, Quezon City");
+
+  L.circle([14.684720, 121.097740], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Batasan Hills, Quezon City");
+
+  L.circle([14.618130, 121.076280], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Blue Ridge B, Quezon City");
+
+  L.circle([14.615690, 121.076210], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Libis, Quezon City");
+
+  L.circle([14.664610, 121.084870], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Matandang Balara, Quezon City");
+
+  L.circle([14.652290, 121.081000], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Pansol, Quezon City");
+
+  L.circle([14.606540, 121.072660], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("White Plains, Quezon City");
+
+  L.circle([14.597840, 121.070450], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Ugong Norte, Quezon City");
+
+  L.circle([14.641110, 121.074400], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Loyola Heights, Quezon City");
+
+  L.circle([14.727770, 121.096310], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Pasong Putik, Quezon City");
+
+  L.circle([14.718640, 121.107597], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Payatas, Quezon City");
+
+  L.circle([14.632800, 121.081390], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Barangka, Marikina City");
+
+  L.circle([14.624260, 121.078500], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Industrial Valley, Marikina City");
+
+  L.circle([14.624260, 121.078500], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Malanday, Marikina City");
+
+  L.circle([14.647320, 121.093193], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Tumana, Marikina City");
+
+  L.circle([14.566000, 121.069650], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Bagong Ilog, Pasig City");
+
+  L.circle([14.548300, 121.092918], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Ugong, Pasig City");
+
+  L.circle([14.553630, 121.062508], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("East Rembo, Makati City");
+
+  L.circle([14.538020, 121.061119], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Pembo, Makati City");
+
+  L.circle([14.553550, 121.045820], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Rizal, Makati City");
+
+  L.circle([14.547610, 121.064230], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Comembo, Makati City");
+
+  L.circle([14.473290, 121.056686], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Bagumbayan, Taguig City");
+
+  L.circle([14.476910, 121.049040], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Bagong Tanyag, Taguig City");
+
+  L.circle([14.489630, 121.054630], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Upper Bicutan, Taguig City");
+
+  L.circle([14.489630, 121.054630], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Central Bicutan, Taguig City");
+
+
+  L.circle([14.499840, 121.061940], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Lower Bicutan, Taguig City");
+
+  L.circle([14.497990, 121.055390], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Maharlika Village, Taguig City");
+
+  L.circle([14.529410, 121.071020], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Pinagsama, Taguig City");
+
+  L.circle([14.517723, 121.057702], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("North Signal Village, Taguig City");
+
+  L.circle([14.511358, 121.054015], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Central Signal Village, Taguig City");
+
+  L.circle([14.508302, 121.058277], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("South Signal Village, Taguig City");
+
+  L.circle([14.508020, 121.055510], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Ususan, Taguig City");
+
+  L.circle([14.476820, 121.047810], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("South Daang Hari, Taguig City");
+
+  L.circle([14.420900, 121.036560], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Alabang, Muntinlupa City");
+
+  L.circle([14.406790, 121.046130], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Bayanan, Muntinlupa City");
+
+  L.circle([14.443810, 121.049330], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Buli, Muntinlupa City");
+
+  L.circle([14.433440, 121.037550], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Cupang, Muntinlupa City");
+
+  L.circle([14.381270, 121.030620], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Poblacion, Muntinlupa City");
+
+  L.circle([14.397420, 121.033050], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Putatan, Muntinlupa City");
+
+  L.circle([14.456781, 121.048620], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Sucat, Muntinlupa City");
+
+  L.circle([14.368449, 121.031036], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Tunasan, Muntinlupa City");
+
+  L.circle([14.368449, 121.031036], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Tunasan, Muntinlupa City");
+
+
+  L.circle([14.8013, 121.1493], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("San Isidro, San Jose Del Monte City, Bulacan");
+
+  L.circle([14.7890, 121.1307], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Ciudad Real, San Jose Del Monte City, Bulacan");
+
+  L.circle([15.002092, 121.014882], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("San Roque, San Jose Del Monte City, Bulacan");
+
+  L.circle([14.8749, 121.2287], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("San Lorenzo, Norzaragay, Bulacan");
+
+  L.circle([14.942323, 121.118244], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Camachin, Doña Remedios Trinidad, Bulacan");
+
+  L.circle([14.937570, 121.130402], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Kabayunan, Doña Remedios Trinidad, Bulacan");
+
+  L.circle([14.983061, 121.057743], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Sapang Bulak, Doña Remedios Trinidad, Bulacan");
+
+  L.circle([14.956073, 121.089882], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Bayabas, Doña Remedios Trinidad, Bulacan");
+
+  L.circle([14.970895, 121.065398], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Camachile, Doña Remedios Trinidad, Bulacan");
+
+  L.circle([14.963127, 121.062047], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Pulong Sampalok, Doña Remedios Trinidad, Bulacan");
+
+  L.circle([14.353586, 121.047167], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Calendola, San Pedro, Laguna");
+
+  L.circle([14.352094, 121.018309], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Gsis, San Pedro, Laguna");
+
+  L.circle([14.356569, 121.044665], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Sampaguita Village, San Pedro, Laguna");
+
+  L.circle([14.368270, 121.050816], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("San Antonio, San Pedro, Laguna");
+
+  L.circle([14.343959, 121.049330], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("San Vicente, San Pedro, Laguna");
+
+  L.circle([14.339617, 121.040862], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Riverside, San Pedro, Laguna");
+
+  L.circle([14.341605, 121.043776], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("United Bayanihan, San Pedro, Laguna");
+
+  L.circle([14.338775, 121.084754], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Biñan, Biñan, Laguna");
+
+  L.circle([14.276681, 121.051934], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Malamig, Biñan, Laguna");
+
+  L.circle([14.331424, 121.057276], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("San Francisco, Biñan, Laguna");
+
+  L.circle([14.175900, 121.266169], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Sto. Domingo, Sta. Rosa, Laguna");
+
+  L.circle([14.212400, 121.052919], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Casile, Cabuyao, Laguna");
+
+  L.circle([14.194192, 121.077643], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Canlubang, Calamba, Laguna");
+
+  L.circle([14.323694, 121.046944], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("San Jose, Gen. Mariano Alvarez, Cavite");
+
+  L.circle([14.291303, 121.012808], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Bancal, Carmona, Cavite");
+
+  L.circle([14.308376, 121.031017], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Cabilang Baybay, Carmona, Cavite");
+
+  L.circle([14.292275, 121.053797], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Lantic, Carmona, Cavite");
+
+  L.circle([14.308919, 121.037023], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Mabuhay, Carmona, Cavite");
+
+  L.circle([14.248055, 120.991993], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Carmen, Silang, Cavite");
+
+  L.circle([14.244062, 121.045683], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+  }).addTo(mymap).bindPopup("Inchican, Silang, Cavite");
+
+
+
+
+  var popup = L.popup();
+
+  function onMapClick(e) {
+    popup
+      .setLatLng(e.latlng)
+      .setContent("You clicked the map at " + e.latlng.toString())
+      .openOn(mymap);
+  }
+
+  mymap.on('click', onMapClick);
+
+</script>
+</body>
+</html>
